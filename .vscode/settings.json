@@ -1,0 +1,16 @@
+{
+  "spellright.language": [],
+  "spellright.documentTypes": ["latex", "plaintext"],
+  "search.useReplacePreview": false,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wrappingIndent": "same",
+  "editor.wordWrapColumn": 100,
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  }
+}

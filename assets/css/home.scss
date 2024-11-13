@@ -13,42 +13,16 @@ h6 {
   font-size: 14px;
 }
 
-.avatar {
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 100%;
-  background-size: cover;
-  background-position: center;
-  display: inline-block;
+.home-page {
+  padding-top: 12vh;
+  padding-bottom: 12vh;
 }
 
-.name {
-  font-size: 18px;
-  font-weight: 400;
-  margin-top: 16px;
-  margin-bottom: 0;
-  display: block;
-  color: black;
+.about-me {
+  padding-top: 20px;
 }
 
-.profile-info {
-  margin: 90px auto 0;
-  text-align: center;
-}
-
-.bio {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #aaa;
-  margin-top: 16px;
-  margin-bottom: 0;
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pixelfed__embed {
-  margin: 20px 0;
+.avatar-author {
+  font-size: 12px;
+  margin-top: 8px;
 }

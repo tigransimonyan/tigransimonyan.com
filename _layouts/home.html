@@ -5,7 +5,7 @@ layout: page
 <div class="home-page">
   <div class="row">
     <div class="col-md-4">
-      <img src="/uploads/photo.jpg" alt="Tigran Simonyan">
+      <img src="/uploads/photo.jpg" alt="Tigran Simonyan" />
       <div class="avatar-author">photo by Gaga</div>
     </div>
     <div class="col-md-1"></div>
@@ -13,33 +13,40 @@ layout: page
       <div class="about-me">
         Hi there!
         <br /><br />
-        I'm a researcher, programmer, film photographer, and open-source contributor living in Armenia. Balancing
-        life
-        between the analog charm of film photography and the digital world of computers.
+        I'm a photographer, filmmaker, programmer, and open-source contributor
+        living in Armenia &mdash; balancing life between art and computers.
         <br /><br />
-        As someone who values freedom of speech, I prefer to avoid using pop platforms that are controlled by large
-        corporations and instead opt for more independent options such as Mastodon, XMPP, WriteFreely, Pixelfed,
-        etc.
+        I value freedom of speech, so I avoid mainstream platforms run by large
+        corporations. Instead, I rely on independent alternatives: Mastodon,
+        XMPP, WriteFreely, Pixelfed, and others.
         <br /><br />
       </div>
 
       <h6>Social links:</h6>
-      <ul style="line-height: 30px;">
+      <ul style="line-height: 30px">
         <li>
-          <a href="https://analog.am/tigran" target="_blank">https://analog.am/tigran</a>
+          <a href="https://analog.am/tigran" target="_blank"
+            >https://analog.am/tigran</a
+          >
         </li>
         <li>
-          <a href="https://www.youtube.com/@s.tigran" target="_blank">https://youtube.com/@s.tigran</a>
+          <a href="https://www.youtube.com/@s.tigran" target="_blank"
+            >https://youtube.com/@s.tigran</a
+          >
         </li>
         <li>
-          <a href="https://github.com/tigransimonyan" target="_blank">https://github.com/tigransimonyan</a>
+          <a href="https://github.com/tigransimonyan" target="_blank"
+            >https://github.com/tigransimonyan</a
+          >
         </li>
       </ul>
 
       <h6>My projects:</h6>
-      <ul style="line-height: 30px;">
+      <ul style="line-height: 30px">
         <li>
-          <a href="https://apps.apple.com/app/id6757470935" target="_blank">Choose like Buddha</a>
+          <a href="https://apps.apple.com/app/id6757470935" target="_blank"
+            >Choose Like Buddha</a
+          >
         </li>
         <li>
           <a href="https://outage.am" target="_blank">outage.am</a>
@@ -53,36 +60,49 @@ layout: page
         <li>
           <a href="https://analog.am" target="_blank">analog.am</a>
         </li>
-       
+
         <li>
           <a href="https://բառարան.հայ" target="_blank">բառարան.հայ</a>
         </li>
       </ul>
 
       <h6>Gift ideas:</h6>
-      <ul style="line-height: 30px;">
+      <ul style="line-height: 30px">
         <li>
-          <a href="https://www.amazon.com/hz/wishlist/ls/2CRTQH1CXKYBJ?ref_=wl_share&viewType=grid" target="_blank">My
-            amazon
-            wishlist</a>
+          <a
+            href="https://www.amazon.com/hz/wishlist/ls/2CRTQH1CXKYBJ?ref_=wl_share&viewType=grid"
+            target="_blank"
+            >My amazon wishlist</a
+          >
         </li>
       </ul>
 
       <h6>Other links:</h6>
-      <ul style="line-height: 30px;">
+      <ul style="line-height: 30px">
         <li>
-          <a href="https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/">https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/</a>
+          <a
+            href="https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/"
+            >https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/</a
+          >
         </li>
       </ul>
 
+      <h6>Cities I've visited:</h6>
+      <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      />
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+      <div
+        id="visited-map"
+        style="height: 300px; margin-bottom: 15px; border-radius: 4px"
+      ></div>
+      <script src="{{ '/assets/js/visited-map.js' | relative_url }}"></script>
+
       <h6>Contacts:</h6>
       <ul>
-        <li>
-          email: tigran@def.am
-        </li>
-        <li>
-          xmpp: tigran@jabber.def.am
-        </li>
+        <li>email: tigran@def.am</li>
+        <li>xmpp: tigran@jabber.def.am</li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,17 @@
+<table class="nav" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    {% assign items = "Home|/,Photos|/photos/,Films|/films/,Blog|/blog/" | split: "," %}
+    {% for item in items %}
+      {% assign parts = item | split: "|" %}
+      {% assign label = parts[0] %}
+      {% assign href = parts[1] %}
+      <td class="nav-item{% if page.url == href %} nav-active{% endif %}">
+        {% if page.url == href %}
+          <span>[ {{ label }} ]</span>
+        {% else %}
+          <a href="{{ href | relative_url }}">[ {{ label }} ]</a>
+        {% endif %}
+      </td>
+    {% endfor %}
+  </tr>
+</table>

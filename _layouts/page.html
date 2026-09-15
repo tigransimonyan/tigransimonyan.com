@@ -2,4 +2,28 @@
 layout: default
 ---
 
-{{ content }}
+<div class="page">
+  <marquee class="banner" scrollamount="5" behavior="scroll" direction="left">
+    &#9733; Welcome to Tigran's Home Page on the World Wide Web! &#9733;
+    Best viewed with Netscape Navigator 3.0 at 800x600 &#9733;
+    Don't forget to sign my guestbook! &#9733;
+  </marquee>
+
+  {% include nav.html %}
+  <hr class="rainbow" />
+
+  <table class="frame" cellpadding="12" cellspacing="0" border="0">
+    <tr>
+      <td class="sidebar" valign="top">
+        {% include sidebar.html %}
+      </td>
+
+      <td class="content" valign="top">
+        {{ content }}
+      </td>
+    </tr>
+  </table>
+
+  <hr class="rainbow" />
+  {% include footer.html %}
+</div>

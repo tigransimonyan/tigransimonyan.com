@@ -40,13 +40,15 @@
     zoomControl: false,
     attributionControl: false,
   });
-  map.fitBounds(
-    L.latLngBounds(
-      cities.map(function (c) {
-        return c.coords;
-      }),
-    ),
-    { padding: [30, 30] },
+  var bounds = L.latLngBounds(
+    cities.map(function (c) {
+      return c.coords;
+    }),
+  );
+  // Fit all cities, then step one zoom level out for extra breathing room.
+  map.setView(
+    bounds.getCenter(),
+    map.getBoundsZoom(bounds, false, L.point(30, 30)) - 1,
   );
   L.control.zoom({ position: "bottomright" }).addTo(map);
   L.control

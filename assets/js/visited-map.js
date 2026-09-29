@@ -35,6 +35,10 @@
         { name: "Photos - 2026", url: 'https://analog.am/c/971396633983012083' }
       ]
     },
+    {
+      name: "Athens", coords: [37.9838, 23.7275], links: [{
+      name: "Photos - 2026", url: 'https://analog.am/c/1003990511522795563'
+    }] },
   ];
   var map = L.map("visited-map", {
     zoomControl: false,

@@ -58,14 +58,14 @@
   L.control
     .attribution({ position: "bottomleft", prefix: false })
     .addAttribution(
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &middot; tiles by <a href="https://carto.com/attributions">CARTO</a>',
+      'Tiles &copy; <a href="https://www.esri.com">Esri</a> &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
     )
     .addTo(map);
+  // Esri Light Gray Canvas: keyless (CARTO basemaps now require an API key).
   L.tileLayer(
-    "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
     {
-      subdomains: "abcd",
-      maxZoom: 20,
+      maxZoom: 16,
     },
   ).addTo(map);
   var pin = L.divIcon({

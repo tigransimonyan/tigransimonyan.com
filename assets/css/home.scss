@@ -33,9 +33,9 @@
   // The white between pieces is the point of the page.
   --space: clamp(7rem, 22vh, 15rem);
 
-  --text: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --text: clamp(1rem, calc(0.95rem + 0.2vw), 1.125rem);
   --small: 0.8125rem;
-  --name: clamp(1.75rem, 1.1rem + 2vw, 3rem);
+  --name: clamp(1.75rem, calc(1.1rem + 2vw), 3rem);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -123,7 +123,7 @@ figure {
 
 .piece {
   // --drop is in percent of page width, capped where the sheet stops growing.
-  margin-top: calc(var(--drop, 0) * min(1vw, 16px));
+  margin-top: calc(var(--drop, 0) * #{"min(1vw, 16px)"});
 }
 
 .name {
@@ -151,7 +151,7 @@ figure {
 
 .prose p {
   max-width: 34ch;
-  font-size: clamp(1.125rem, 0.95rem + 0.5vw, 1.375rem);
+  font-size: clamp(1.125rem, calc(0.95rem + 0.5vw), 1.375rem);
   line-height: 1.45;
   letter-spacing: -0.01em;
   text-wrap: pretty;
@@ -316,7 +316,7 @@ iframe.film-frame {
 }
 
 .more .list {
-  font-size: clamp(1.125rem, 0.95rem + 0.5vw, 1.375rem);
+  font-size: clamp(1.125rem, calc(0.95rem + 0.5vw), 1.375rem);
   line-height: 1.4;
 
   .meta {
@@ -366,7 +366,7 @@ iframe.film-frame {
 /* ---------- Inner pages (404) ---------- */
 
 .page-title {
-  font-size: clamp(1.125rem, 0.95rem + 0.5vw, 1.375rem);
+  font-size: clamp(1.125rem, calc(0.95rem + 0.5vw), 1.375rem);
   font-weight: 500;
   margin-bottom: 1rem;
 }

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "world": "White exhibition sheet",
+  "colors": { "paper": "#ffffff", "ink": "#141414", "inkSoft": "#6b6b6b" },
+  "type": {
+    "family": "Hanken Grotesk",
+    "armenian": "Noto Sans Armenian",
+    "name": { "size": "clamp(2.25rem, 1.2rem + 3.4vw, 4.75rem)", "weight": 500, "tracking": "-0.03em" },
+    "body": "clamp(1.0625rem, 0.95rem + 0.35vw, 1.3125rem)",
+    "prose": "clamp(1.25rem, 0.9rem + 1vw, 1.875rem)",
+    "small": "0.8125rem"
+  },
+  "space": { "between": "clamp(7rem, 22vh, 15rem)", "betweenMobile": "clamp(5rem, 16vh, 8rem)", "gutter": "clamp(16px, 4vw, 64px)" },
+  "grid": { "columns": 12, "columnsMobile": 6, "layout": "collage bands: 2 pieces per band, per-piece col and drop" },
+  "elevation": "none",
+  "radius": 0
+}

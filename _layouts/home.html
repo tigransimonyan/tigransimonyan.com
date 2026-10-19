@@ -1,88 +1,51 @@
 ---
-layout: page
+layout: default
 ---
+<main class="sheet">
+  {% for g in site.data.home %}
+  <div class="cluster">
+    {% for item in g.group %}{% include piece.html item=item %}{% endfor %}
+  </div>
+  {% endfor %}
 
-<div class="about-me">
-  Hi there!
-  <br /><br />
-  I'm a photographer, filmmaker, programmer, and open-source contributor
-  living in Armenia &mdash; balancing life between art and computers.
-  <br /><br />
-  I value freedom of speech, so I avoid mainstream platforms run by large
-  corporations. Instead, I rely on independent alternatives: Mastodon,
-  XMPP, WriteFreely, Pixelfed, and others.
-</div>
+  <footer class="colophon">
+    <figure class="portrait">
+      <img src="{{ '/uploads/photo.jpg' | relative_url }}" width="1918" height="2075" alt="Portrait of Tigran Simonyan" loading="lazy" />
+      <figcaption class="meta">Photo by Gaga</figcaption>
+    </figure>
 
+    <div class="col">
+      <h2 class="label">Things I've built</h2>
+      <ul class="list">
+        <li><a href="https://chooselikebuddha.com/" target="_blank" rel="noopener">Choose Like Buddha</a> <span class="meta new">New</span></li>
+        <li><a href="https://outage.am" target="_blank" rel="noopener">outage.am</a></li>
+        <li><a href="https://joinrave.com" target="_blank" rel="noopener">joinrave.com</a></li>
+        <li><a href="https://zoomment.com" target="_blank" rel="noopener">zoomment.com</a></li>
+        <li><a href="https://analog.am" target="_blank" rel="noopener">analog.am</a></li>
+        <li><a href="https://բառարան.հայ" target="_blank" rel="noopener" lang="hy">բառարան.հայ</a></li>
+      </ul>
+    </div>
 
+    <div class="col">
+      <h2 class="label">Contact</h2>
+      <ul class="list">
+        <li><a href="mailto:tigran@def.am">tigran@def.am</a></li>
+        <li><span class="meta">XMPP</span> tigran@jabber.def.am</li>
+        <li><a href="https://github.com/tigransimonyan" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
 
-<h3 class="bar">&#9658; My projects</h3>
-<ul>
-  <li>
-    <a href="https://chooselikebuddha.com/" target="_blank"
-      >Choose Like Buddha</a
-    >
-    <span class="blink new-tag">NEW!</span>
-  </li>
-  <li>
-    <a href="https://outage.am" target="_blank">outage.am</a>
-  </li>
-  <li>
-    <a href="https://joinrave.com" target="_blank">joinrave.com</a>
-  </li>
-  <li>
-    <a href="https://zoomment.com" target="_blank">zoomment.com</a>
-  </li>
-  <li>
-    <a href="https://analog.am" target="_blank">analog.am</a>
-  </li>
-  <li>
-    <a href="https://բառարան.հայ" target="_blank">բառարան.հայ</a>
-  </li>
-</ul>
+      <h2 class="label">Elsewhere</h2>
+      <ul class="list">
+        <li><a href="https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/" target="_blank" rel="noopener">Salt: analog photography in Yerevan</a> <span class="meta">EVN Report</span></li>
+        <li><a href="https://www.amazon.com/hz/wishlist/ls/2CRTQH1CXKYBJ?ref_=wl_share&amp;viewType=grid" target="_blank" rel="noopener">Gift ideas</a> <span class="meta">my wishlist</span></li>
+      </ul>
+    </div>
 
-<h3 class="bar">&#9658; Gift ideas</h3>
-<ul>
-  <li>
-    <a
-      href="https://www.amazon.com/hz/wishlist/ls/2CRTQH1CXKYBJ?ref_=wl_share&viewType=grid"
-      target="_blank"
-      >My amazon wishlist</a
-    >
-  </li>
-</ul>
+    <p class="meta fine">&copy; {{ site.time | date: "%Y" }} Tigran Simonyan</p>
+  </footer>
+</main>
 
-<h3 class="bar">&#9658; Other links</h3>
-<ul>
-  <li>
-    <a
-      href="https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/"
-      target="_blank"
-      >https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/</a
-    >
-  </li>
-  <li>
-    <a href="https://github.com/tigransimonyan" target="_blank">https://github.com/tigransimonyan</a>
-  </li>
-</ul>
-
-<h3 class="bar">&#9658; Cities I've visited</h3>
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<table class="map-frame" cellpadding="4" cellspacing="0" border="0">
-  <tr>
-    <td>
-      <div id="visited-map"></div>
-    </td>
-  </tr>
-</table>
-<script src="{{ '/assets/js/visited-map.js' | relative_url }}"></script>
-<div class="map-hint">Click a red dot to see photos from that city.</div>
-
-<h3 class="bar">&#9658; Contacts</h3>
-<ul>
-  <li>email: <a href="mailto:tigran@def.am">tigran@def.am</a></li>
-  <li>xmpp: tigran@jabber.def.am</li>
-</ul>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script src="{{ '/assets/js/visited-map.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/films.js' | relative_url }}" defer></script>

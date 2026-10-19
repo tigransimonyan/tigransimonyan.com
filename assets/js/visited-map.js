@@ -1,4 +1,8 @@
 (function () {
+  // The map piece is optional in _data/home.yml, and Leaflet comes from a CDN.
+  var el = document.getElementById("visited-map");
+  if (!el || !window.L) return;
+
   // Each city has one set of coords and any number of links ({ name, url }).
   var cities = [
     { name: "Yerevan (home)", coords: [40.1792, 44.4991], links: [] },
@@ -40,9 +44,12 @@
       name: "Photos - 2026", url: 'https://analog.am/c/1003990511522795563'
     }] },
   ];
-  var map = L.map("visited-map", {
+  var map = L.map(el, {
     zoomControl: false,
     attributionControl: false,
+    scrollWheelZoom: false,
+    // On phones a one-finger swipe should scroll the page, not pan the map.
+    dragging: !L.Browser.mobile,
   });
   var bounds = L.latLngBounds(
     cities.map(function (c) {
@@ -70,8 +77,8 @@
   ).addTo(map);
   var pin = L.divIcon({
     className: "visited-pin",
-    iconSize: [10, 10],
-    iconAnchor: [5, 5],
+    iconSize: [12, 12],
+    iconAnchor: [6, 6],
   });
   function escapeHtml(s) {
     return String(s)
@@ -95,4 +102,10 @@
     });
     L.marker(c.coords, { icon: pin }).addTo(map).bindPopup(popup);
   });
+  // The map changes shape at the phone breakpoint; let Leaflet re-measure.
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () {
+      map.invalidateSize();
+    }).observe(el);
+  }
 })();

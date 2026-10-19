@@ -1,8 +1,9 @@
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="generator" content="Microsoft FrontPage 3.0" />
-  <title>Tigran Simonyan | {{ page.title | default: "Home" }}</title>
-
+  <title>{% if page.title %}{{ page.title }} · {% endif %}Tigran Simonyan</title>
+  <meta name="description" content="{{ site.description }}" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preload" href="{{ '/assets/fonts/hanken-grotesk-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}" />
 </head>

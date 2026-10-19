@@ -1,0 +1,45 @@
+{% assign item = include.item %}{% capture place %}grid-column: {{ item.col }}; --drop: {{ item.drop | default: 0 }}{% endcapture %}
+{% if item.name %}
+<header class="piece masthead" style="{{ place }}">
+  <h1 class="name">{{ item.name }}</h1>
+  <p class="role">{{ item.role }}</p>
+  {% if item.bio %}<p class="poem">{{ item.bio | strip | newline_to_br }}</p>{% endif %}
+</header>
+
+{% elsif item.photo %}
+<figure class="piece photo" style="{{ place }}">
+  <a href="{{ item.photo }}" target="_blank" rel="noopener" aria-label="Open photograph full size">
+    <img src="{{ item.photo }}" width="{{ item.size[0] }}" height="{{ item.size[1] }}"
+      alt="{{ item.alt | default: 'Black-and-white film photograph' }}" loading="lazy" decoding="async" />
+  </a>
+</figure>
+
+{% elsif item.film %}
+<figure class="piece film" style="{{ place }}" id="film-{{ item.film }}">
+  <button class="film-frame" type="button" data-video="{{ item.film }}" data-title="{{ item.title }}"
+    aria-label="Play {{ item.title }}">
+    <img src="https://i.ytimg.com/vi/{{ item.film }}/hqdefault.jpg" alt="" loading="lazy" decoding="async" />
+    <svg class="film-play" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" /><path d="M26 21 L45 32 L26 43 Z" /></svg>
+  </button>
+  <figcaption><span class="film-title">{{ item.title }}</span> <span class="meta">Short film, {{ item.year }}</span></figcaption>
+</figure>
+
+{% elsif item.poem %}
+<div class="piece poem" style="{{ place }}"><p>{{ item.poem | strip | newline_to_br }}</p></div>
+
+{% elsif item.map %}
+<section class="piece map" style="{{ place }}" aria-labelledby="map-title">
+  <h2 id="map-title" class="label">{{ item.map }}</h2>
+  <div id="visited-map" role="region" aria-label="Map of cities visited"></div>
+  <p class="meta">{{ item.note }}</p>
+</section>
+
+{% elsif item.links %}
+<nav class="piece more" style="{{ place }}" aria-label="{{ item.links }}">
+  <ul class="list">
+    {% for l in item.items %}
+    <li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.name }}</a> <span class="meta">{{ l.via }}</span></li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endif %}

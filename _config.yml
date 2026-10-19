@@ -26,3 +26,5 @@ exclude:
   - Gemfile
   - tools
   - README.md
+  - PRODUCT.md
+  - DESIGN.md

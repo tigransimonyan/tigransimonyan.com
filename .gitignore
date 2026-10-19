@@ -1,3 +1,9 @@
 .jekyll-cache
 vendor
 _site
+
+# Impeccable scratch: screenshots, decision mocks, question server state
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/decision-payload*.json

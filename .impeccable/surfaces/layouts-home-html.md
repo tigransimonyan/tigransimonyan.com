@@ -7,7 +7,7 @@ related_targets: []
 
 # Home (single page)
 
-Mode: Experience. The work leads; the interface recedes.
+Mode: Read. A links page: name, one line, grouped links (owner request 2026-11-06, replaces the collage contract below).
 
 Audience: visitors arriving from analog.am, Mastodon/Pixelfed and Tigran's projects who want to see the work and find a way to see more or get in touch.
 

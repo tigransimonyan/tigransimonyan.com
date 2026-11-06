@@ -19,14 +19,15 @@ Analog-film work from someone who also builds the independent platforms it lives
 - Jekyll 4.3 static site on GitHub Pages with a custom domain (`CNAME`: tigransimonyan.com). Styles are Sass at `assets/css/home.scss`.
 - Photos are hot-linked from analog.am (`photos.md` front matter); the full archive is at https://analog.am/tigran.
 - Films are YouTube embeds via youtube-nocookie (`films.md` front matter).
-- The visited-cities map uses Leaflet 1.9.4 from unpkg; data lives in `assets/js/visited-map.js`, and each city links to analog.am photo collections.
+- The home page is links only; all links live in `_data/links.yml`.
 
 ## Capabilities and Constraints
 - Pages to keep: Home, Photos, Films.
-- Must keep: the visited-cities map and the gift wishlist link (Amazon).
+- Must keep: the gift wishlist link (Amazon). The visited-cities map, photos and films were removed from the page (2026-11-06, owner asked for links only); cities with photo sets are now links.
 - Being dropped: the joke password-gated "Blog" page and the "Links / under construction" placeholder page.
 - Home content to keep: the projects list (Choose Like Buddha, outage.am, joinrave.com, zoomment.com, analog.am, բառարան.հայ), the EVN Report article, GitHub, and contacts (email tigran@def.am, XMPP tigran@jabber.def.am).
-- The two body paragraphs (bio and independent-web statement) were removed at the owner's request (2026-10-19); the "I am not my…" poem is the page's only body text.
+- The "I am not my…" poem was removed with the links-only redesign (2026-11-06).
+- The two body paragraphs (bio and independent-web statement) were removed at the owner's request (2026-10-19); 
 - Undecided: whether a real blog will exist later (WriteFreely is mentioned in the bio).
 
 ## Brand Commitments

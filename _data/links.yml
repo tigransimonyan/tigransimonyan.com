@@ -1,0 +1,38 @@
+# The home page is a list of links, grouped. One line per link:
+#   name: what the link says
+#   url:  where it goes (mailto: works; leave out for plain text, e.g. XMPP)
+#   note: optional small grey text after the link
+#   lang: optional, e.g. hy for Armenian names
+
+- label: Work
+  items:
+    - { name: Film photographs, url: "https://analog.am/tigran", note: analog.am }
+    - { name: Short films, url: "https://www.youtube.com/@s.tigran", note: YouTube }
+
+- label: Cities
+  items:
+    - { name: Athens, url: "https://analog.am/c/1003990511522795563", note: "2026" }
+    - { name: Hamburg & Berlin, url: "https://analog.am/c/971396633983012083", note: "2026" }
+    - { name: Vienna, url: "https://analog.am/c/898292144343581236", note: "2025" }
+    - { name: Dubrovnik, url: "https://analog.am/c/888560952011085752", note: "2025" }
+    - { name: Rome, url: "https://analog.am/c/852519584180510357", note: "2025" }
+
+- label: Built
+  items:
+    - { name: Choose Like Buddha, url: "https://chooselikebuddha.com/", note: new }
+    - { name: analog.am, url: "https://analog.am" }
+    - { name: outage.am, url: "https://outage.am" }
+    - { name: joinrave.com, url: "https://joinrave.com" }
+    - { name: zoomment.com, url: "https://zoomment.com" }
+    - { name: բառարան.հայ, url: "https://բառարան.հայ", lang: hy }
+    - { name: GitHub, url: "https://github.com/tigransimonyan" }
+
+- label: Elsewhere
+  items:
+    - { name: "Salt: analog photography in Yerevan", url: "https://evnreport.com/lifestyle/salt-analog-photography-in-yerevan/", note: EVN Report }
+    - { name: Gift ideas, url: "https://www.amazon.com/hz/wishlist/ls/2CRTQH1CXKYBJ?ref_=wl_share&viewType=grid", note: wishlist }
+
+- label: Contact
+  items:
+    - { name: tigran@def.am, url: "mailto:tigran@def.am" }
+    - { name: tigran@jabber.def.am, note: XMPP }

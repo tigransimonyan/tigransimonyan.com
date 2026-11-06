@@ -1,16 +1,12 @@
 ---
 layout: default
 ---
-<main class="sheet sheet-short">
-  <div class="cluster">
-    <header class="piece masthead" style="grid-column: 1 / 7">
-      <a class="name" href="{{ '/' | relative_url }}">Tigran Simonyan</a>
-    </header>
-  </div>
-  <div class="cluster">
-    <div class="piece prose" style="grid-column: 2 / 7">
-      {% if page.title %}<h1 class="page-title">{{ page.title }}</h1>{% endif %}
-      {{ content }}
-    </div>
+<main class="sheet">
+  <header class="masthead">
+    <a class="name" href="{{ '/' | relative_url }}">Tigran Simonyan</a>
+  </header>
+  <div class="group prose">
+    {% if page.title %}<h1 class="label">{{ page.title }}</h1>{% endif %}
+    {{ content }}
   </div>
 </main>

@@ -27,13 +27,12 @@
   --paper: #ffffff;
   --ink: #141414;
   --ink-soft: #6b6b6b; // 5.3:1 on white
+  --line: #b5b5b5;
 
   --gutter: clamp(16px, 4vw, 64px);
-  --col-gap: clamp(12px, 2vw, 32px);
-  // The white between pieces is the point of the page.
-  --space: clamp(7rem, 22vh, 15rem);
+  --space: clamp(2.75rem, 7vh, 4.5rem);
 
-  --text: clamp(1rem, calc(0.95rem + 0.2vw), 1.125rem);
+  --text: clamp(1.0625rem, calc(0.98rem + 0.35vw), 1.3125rem);
   --small: 0.8125rem;
   --name: clamp(1.75rem, calc(1.1rem + 2vw), 3rem);
 
@@ -57,8 +56,7 @@ body {
   color: var(--ink);
   font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-size: var(--text);
-  line-height: 1.55;
-  font-weight: 400;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -68,18 +66,12 @@ body {
   color: var(--paper);
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
 a {
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.22em;
-  text-decoration-color: #b5b5b5;
+  text-decoration-color: var(--line);
   transition: text-decoration-color 200ms var(--ease-out);
 
   &:hover {
@@ -95,38 +87,20 @@ a {
 h1,
 h2,
 p,
-ul,
-figure {
+ul {
   margin: 0;
 }
 
-/* ---------- The sheet: a 12-column page with lots of white ---------- */
+/* ---------- One sheet: name, then groups of links ---------- */
 
 .sheet {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: clamp(32px, 6vw, 88px) var(--gutter) clamp(48px, 8vw, 120px);
-}
-
-// A cluster is one band of the collage: a 12-column row whose pieces sit side
-// by side, each hanging a different distance (--drop) below the band's top.
-.cluster {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--col-gap);
-  align-items: start;
-
-  & + & {
-    margin-top: var(--space);
-  }
-}
-
-.piece {
-  // --drop is in percent of page width, capped where the sheet stops growing.
-  margin-top: calc(var(--drop, 0) * #{"min(1vw, 16px)"});
+  max-width: 1100px;
+  min-height: 100vh;
+  padding: clamp(32px, 7vw, 104px) var(--gutter) clamp(40px, 6vw, 88px);
 }
 
 .name {
+  display: inline-block;
   font-size: var(--name);
   font-weight: 500;
   line-height: 1;
@@ -140,21 +114,37 @@ figure {
   max-width: 34ch;
 }
 
-.photo a {
-  display: block;
-  background: #f2f2f2;
+// Label in a narrow left column, links beside it; stacks on phones.
+.group {
+  display: grid;
+  grid-template-columns: clamp(7rem, 14vw, 11rem) 1fr;
+  column-gap: clamp(16px, 3vw, 48px);
+  align-items: baseline;
+  margin-top: var(--space);
+
+  .masthead + & {
+    margin-top: calc(var(--space) * 1.5);
+  }
 }
 
-.photo img {
-  width: 100%;
+.label {
+  font-size: var(--small);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ink-soft);
 }
 
-.prose p {
-  max-width: 34ch;
-  font-size: clamp(1.125rem, calc(0.95rem + 0.5vw), 1.375rem);
-  line-height: 1.45;
-  letter-spacing: -0.01em;
-  text-wrap: pretty;
+.list {
+  list-style: none;
+  padding: 0;
+
+  li + li {
+    margin-top: 0.3rem;
+  }
+
+  .meta {
+    margin-left: 0.45rem;
+  }
 }
 
 .meta {
@@ -163,255 +153,22 @@ figure {
   letter-spacing: 0.01em;
 }
 
-.label {
-  font-size: var(--small);
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  margin-bottom: 1.25rem;
+.fine {
+  margin-top: calc(var(--space) * 1.5);
 }
 
-// A long litany set in columns, read top to bottom like a wall text.
-.masthead .poem {
-  margin-top: clamp(2.5rem, 6vh, 4rem);
-  color: var(--ink);
-}
+.prose p {
+  max-width: 40ch;
 
-.poem p,
-.masthead .poem {
-  columns: 3 22ch;
-  column-gap: var(--col-gap);
-  font-size: 0.9375rem;
-  line-height: 1.7;
-}
-
-/* ---------- Films ---------- */
-
-.film-frame {
-  display: block;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  padding: 0;
-  border: 0;
-  background: #111;
-  cursor: pointer;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(1);
-    transition: transform 1200ms var(--ease-out), filter 600ms var(--ease-out);
-  }
-
-  &:hover img,
-  &:focus-visible img {
-    transform: scale(1.02);
-    filter: grayscale(0.4);
+  & + p {
+    margin-top: 0.75rem;
   }
 }
 
-iframe.film-frame {
-  cursor: auto;
-}
-
-.film-play {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: clamp(48px, 6vw, 72px);
-  height: auto;
-  transform: translate(-50%, -50%);
-
-  circle {
-    fill: none;
-    stroke: #fff;
-    stroke-width: 1.5;
-  }
-
-  path {
-    fill: #fff;
-  }
-}
-
-.film figcaption {
-  margin-top: 0.9rem;
-  display: flex;
-  gap: 0.75rem;
-  align-items: baseline;
-}
-
-.film-title {
-  font-weight: 500;
-}
-
-/* ---------- Map ---------- */
-
-#visited-map {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #f4f4f4;
-  filter: grayscale(1);
-}
-
-.map .meta {
-  margin-top: 0.9rem;
-}
-
-.visited-pin {
-  background: var(--ink);
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9);
-}
-
-.leaflet-container {
-  font-family: inherit;
-}
-
-.leaflet-control-attribution {
-  font-size: 0.625rem;
-  color: var(--ink-soft) !important;
-  background: rgba(255, 255, 255, 0.75) !important;
-}
-
-.leaflet-popup-content-wrapper {
-  border-radius: 0;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-}
-
-.leaflet-popup-content {
-  margin: 12px 16px;
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.leaflet-popup-tip {
-  box-shadow: none;
-}
-
-.leaflet-bar {
-  border: 0 !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-
-  a {
-    border-radius: 0 !important;
-    color: var(--ink);
-  }
-}
-
-/* ---------- Lists and colophon ---------- */
-
-.list {
-  list-style: none;
-  padding: 0;
-
-  li + li {
-    margin-top: 0.35rem;
-  }
-
-  a + .meta {
-    margin-left: 0.4rem;
-  }
-}
-
-.more .list {
-  font-size: clamp(1.125rem, calc(0.95rem + 0.5vw), 1.375rem);
-  line-height: 1.4;
-
-  .meta {
-    font-size: var(--small);
-  }
-}
-
-.new {
-  color: var(--ink);
-  font-weight: 500;
-}
-
-.colophon {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--col-gap);
-  margin-top: var(--space);
-  font-size: 1rem;
-  row-gap: 3rem;
-
-  .portrait {
-    grid-column: 1 / 3;
-
-    img {
-      width: 100%;
-      max-width: 160px;
-      filter: grayscale(1);
-    }
-
-    figcaption {
-      margin-top: 0.5rem;
-    }
-  }
-
-  .col:nth-of-type(1) { grid-column: 5 / 8; }
-  .col:nth-of-type(2) { grid-column: 9 / 13; }
-
-  .col .label:not(:first-child) {
-    margin-top: 2.5rem;
-  }
-
-  .fine {
-    grid-column: 1 / -1;
-  }
-}
-
-/* ---------- Inner pages (404) ---------- */
-
-.page-title {
-  font-size: clamp(1.125rem, calc(0.95rem + 0.5vw), 1.375rem);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.sheet-short {
-  min-height: 100vh;
-
-  .prose p + p {
-    margin-top: 1rem;
-  }
-}
-
-/* ---------- Narrow screens: one column, pieces alternate sides ---------- */
-
-@media (max-width: 760px) {
-  :root {
-    --space: clamp(5rem, 16vh, 8rem);
-  }
-
-  .cluster,
-  .colophon {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
-  // Placement from the data file is for wide screens; phones stack the band.
-  .cluster > .piece {
-    grid-column: 1 / -1 !important;
-    margin-top: 0;
-  }
-
-  .cluster > .piece + .piece {
-    margin-top: 4rem;
-  }
-
-  .cluster > .photo:nth-child(odd) { margin-right: 18%; }
-  .cluster > .photo:nth-child(even) { margin-left: 18%; }
-
-  #visited-map {
-    aspect-ratio: 4 / 5;
-  }
-
-  .colophon {
-    .portrait { grid-column: 1 / 3; }
-    .col:nth-of-type(1),
-    .col:nth-of-type(2) { grid-column: 1 / -1; }
+@media (max-width: 640px) {
+  .group {
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
   }
 }
 
